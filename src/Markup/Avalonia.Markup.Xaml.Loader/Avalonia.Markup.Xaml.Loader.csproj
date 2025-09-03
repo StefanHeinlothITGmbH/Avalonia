@@ -1,10 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>$(AvsCurrentTargetFramework);$(AvsLegacyTargetFrameworks);netstandard2.0</TargetFrameworks>
     <IsPackable>true</IsPackable>
     <IsAotCompatible>false</IsAotCompatible>
-    <DefineConstants>$(DefineConstants);XAMLX_INTERNAL;XAML_RUNTIME_LOADER</DefineConstants>
+    <DefineConstants>$(DefineConstants);XAML_RUNTIME_LOADER</DefineConstants>
+    <TargetFramework>net9.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\Avalonia.Markup.Xaml\Avalonia.Markup.Xaml.csproj" />

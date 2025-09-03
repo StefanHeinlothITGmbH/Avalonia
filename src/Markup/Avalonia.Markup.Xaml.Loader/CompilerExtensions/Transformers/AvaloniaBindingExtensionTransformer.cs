@@ -14,7 +14,8 @@ namespace Avalonia.Markup.Xaml.XamlIl.CompilerExtensions.Transformers
         }
     }
     
-    class AvaloniaBindingExtensionTransformer : IXamlAstTransformer
+    class 
+        AvaloniaBindingExtensionTransformer : IXamlAstTransformer
     {
         public bool CompileBindingsByDefault { get; set; }
 

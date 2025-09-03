@@ -9,6 +9,7 @@ using System.Linq.Expressions;
 using System.Reflection;
 using System.Reflection.Emit;
 using System.Runtime.InteropServices;
+using Avalonia.Markup.Xaml.Loader;
 using Avalonia.Markup.Xaml.XamlIl.CompilerExtensions;
 using Avalonia.Markup.Xaml.XamlIl.Runtime;
 using Avalonia.Platform;
@@ -208,7 +209,7 @@ namespace Avalonia.Markup.Xaml.XamlIl
             }
             finally
             {
-                if(!success &&  _sreCanSave)
+                if(!success &&  _sreCanSave)            
                     DumpRuntimeCompilationResults();
             }
         }
@@ -313,6 +314,8 @@ namespace Avalonia.Markup.Xaml.XamlIl
                             compiler.DefineBuildMethod(builder, parsed, AvaloniaXamlIlCompiler.BuildName, XamlVisibility.Public) :
                             null)));
                 originalDocuments.Add(document);
+                
+                XMLDocumentHolder.XamlRootAst = parsed;
             }
 
             compiler.TransformGroup(parsedDocuments);

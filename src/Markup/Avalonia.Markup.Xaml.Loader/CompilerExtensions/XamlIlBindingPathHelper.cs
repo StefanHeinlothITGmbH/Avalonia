@@ -754,18 +754,24 @@ namespace Avalonia.Markup.Xaml.XamlIl.CompilerExtensions
                 }
                 else if (Method.ReturnType == context.Configuration.WellKnownTypes.Void && Method.Parameters.Count <= 16)
                 {
+#pragma warning disable IL2062
                     specificDelegateType = context.Configuration.TypeSystem
                         .GetType($"System.Action`{Method.Parameters.Count}")
                         .MakeGenericType(Method.Parameters);
+#pragma warning restore IL2062
                 }
                 else if (Method.Parameters.Count <= 16)
                 {
                     List<IXamlType> genericParameters = new();
                     genericParameters.AddRange(Method.Parameters);
                     genericParameters.Add(Method.ReturnType);
+#pragma warning disable IL2062
+
                     specificDelegateType = context.Configuration.TypeSystem
                         .GetType($"System.Func`{Method.Parameters.Count + 1}")
                         .MakeGenericType(genericParameters);
+#pragma warning restore IL2062
+
                 }
                 else
                 {
